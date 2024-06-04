@@ -73,7 +73,8 @@ function Signup() {
           district: data.district,
           upazila: data.upazila,
           image: res.data.data.display_url,
-          role: "donar"
+          role: "donar",
+          status:"active"
       }
        axiosPublic.post('/user', userData)
         .then(res=>{
@@ -185,7 +186,8 @@ function Signup() {
             </div>
 
 
-            <div>
+            <div className="flex justify-between items-center gap-3 mt-3">
+            <div className="w-full border text-gray-700 bg-white rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300">
             <label htmlFor="district">District:</label>
       <select
         id="district"
@@ -200,8 +202,10 @@ function Signup() {
           <option key={district.name} value={district.name}>{district.name}</option>
         ))}
       </select>
+            </div>
 
-      <label htmlFor="upazila">Upazila:</label>
+            <div className="w-full border">
+            <label htmlFor="upazila">Upazila:</label>
       <select
         id="upazila"
         name="upazila"
@@ -214,6 +218,7 @@ function Signup() {
           <option key={upazila} value={upazila}>{upazila}</option>
         ))}
       </select>
+            </div>
             </div>
 
             <div className="flex gap-3">

@@ -4,11 +4,11 @@ import { Link, Outlet } from "react-router-dom"
 function Dashboard() {
   return (
     <div className="flex">
-        <div className="bg-red-400 min-h-screen w-64">
-            <ul>
+        <div className="bg-red-400 min-h-screen w-64 ">
+            <ul className="flex flex-col justify-between">
                 <Link to={''}>Admin Home</Link>
-                <li>All users</li>
-                <li>Profile</li>
+                <Link to={'allUsers'}>All users</Link>
+                <Link to={'profile'}>Profile</Link>
                 <Link to={'/'}>Home</Link>
             </ul>
         </div>

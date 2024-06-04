@@ -9,6 +9,8 @@ import Blog from "../Blog/Blog";
 import Funding from "../Funding/Funding";
 import AdminHome from "../Dashboard/AdminDashboard/AdminHome";
 import Dashboard from "../Layout/Dashboard";
+import Profile from "../Dashboard/Profile";
+import AllUsers from "../Dashboard/AdminDashboard/AllUsers";
 
 
 
@@ -31,6 +33,8 @@ export const router =createBrowserRouter([
       element:<Dashboard></Dashboard>,
       children:[
         {index:true, element:<AdminHome></AdminHome>},
+        {path:'profile', element:<Profile></Profile>},
+        {path:'allUsers', element:<AllUsers></AllUsers>},
      
       ]
     }
