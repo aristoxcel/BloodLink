@@ -40,7 +40,7 @@ const {
               showConfirmButton: false,
               timer: 1500
             });
-          navigate(from)
+          navigate(from, {replace:true});
         })
         .catch(()=>{setError('Email or Password is not matching')
                 Swal.fire({

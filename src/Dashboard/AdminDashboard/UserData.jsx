@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ThreeDotMenu from '../../Components/ThreeDotMenu'
+import RoleChange from '../../Components/RoleChange'
 // import UpdateUserModal from '../../../Modal/UpdateUserModal'
 // import { updateRole } from '../../../../api/auth'
 // import { toast } from 'react-hot-toast'
@@ -46,7 +48,8 @@ const UserData = ({ user, refetch }) => {
       </td>
 
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <span
+      <ThreeDotMenu userId={user._id} initialStatus={user.status} />
+        {/* <span
           onClick={() => setIsOpen(true)}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
         >
@@ -56,13 +59,17 @@ const UserData = ({ user, refetch }) => {
           ></span>
           <span className='relative'>Update Role</span>
         </span>
-        {/* Modal */}
-        {/* <UpdateUserModal
+    
+        <UpdateUserModal
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           user={user}
           modalHandler={modalHandler}
         /> */}
+      </td>
+      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <RoleChange userId={user._id} />
+        
       </td>
     </tr>
   )

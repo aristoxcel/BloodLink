@@ -13,7 +13,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 function Signup() {
 
-    const {createUser} = useAuth()
+    const {createUser, updateUserProfile} = useAuth()
     const navigate = useNavigate()
     const axiosPublic = useAxiosPublic()
 
@@ -66,6 +66,8 @@ function Signup() {
       createUser(data.email, data.password)
       .then(result =>{
         console.log(result.user)
+       updateUserProfile(data.name, res.data.data.display_url)
+       .then(()=>{
         const userData = {
           name: data.name,
           email: data.email,
@@ -89,6 +91,7 @@ function Signup() {
           }
 
         })
+       })
       })
       .catch(error =>console.log(error));
       console.log(res.data)
