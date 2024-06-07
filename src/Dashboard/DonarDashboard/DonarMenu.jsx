@@ -1,12 +1,12 @@
 import MenuItem from "../../Components/MenuItem"
-import { BsFingerprint } from 'react-icons/bs'
-import { GrUserAdmin } from 'react-icons/gr'
+import { BiSolidDonateBlood } from "react-icons/bi"
+
 import { useState } from 'react'
 import useAxiosSecure from "../../Authentication/hooks/useAxiosSecure"
 import useAuth from "../../Authentication/hooks/useAuth"
 import useRole from "../../Authentication/hooks/useRole"
 import toast from 'react-hot-toast'
-import VolunteerMenu from "../VolunteerDashvoard/VolunteerMenu"
+
 
 function DonarMenu() {
     const axiosSecure = useAxiosSecure()
@@ -42,12 +42,17 @@ function DonarMenu() {
     return (
       <>
         <MenuItem
-          icon={BsFingerprint}
-          label='My Bookings'
-          address='my-bookings'
+          icon={BiSolidDonateBlood}
+          label='My Donation Requests'
+          address='/dashboard/my-donation-requests'
+        />
+        <MenuItem
+          icon={BiSolidDonateBlood}
+          label='Blood Donation Request'
+          address='/dashboard/create-donation-request'
         />
   
-        {role === 'guest' && (
+        {/* {role === 'guest' && (
           <div
             onClick={() => setIsModalOpen(true)}
             className='flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform text-gray-600  hover:bg-gray-300   hover:text-gray-700 cursor-pointer'
@@ -56,13 +61,13 @@ function DonarMenu() {
   
             <span className='mx-4 font-medium'>Become A Host</span>
           </div>
-        )}
-        {/* Modal */}
+        )} */}
+        {/* Modal
         <VolunteerMenu
           isOpen={isModalOpen}
           closeModal={closeModal}
           modalHandler={modalHandler}
-        />
+        /> */}
       </>
     )
 }

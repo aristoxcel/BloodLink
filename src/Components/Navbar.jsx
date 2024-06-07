@@ -52,25 +52,25 @@ export const Navbar = () => {
           <NavLink to={'/'} className="group flex  cursor-pointer flex-col pl-2">
             Home<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
-          <NavLink to={'/Add-Donar'} className="group flex  cursor-pointer flex-col">
-            Add Donar Request<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
+          <NavLink to={'/Search-Blood'} className="group flex  cursor-pointer flex-col">
+            Search Blood<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
-          <NavLink to={'/Search-Donar'} className="group flex  cursor-pointer flex-col">
-            Search Donar<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
+          <NavLink to={'/Blood-Request'} className="group flex  cursor-pointer flex-col">
+            Blood Donation Request<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
+          
           <NavLink to={'/Blog'} className="group flex  cursor-pointer flex-col">
             Blog<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
-          <NavLink to={'/Funding'} className="group flex  cursor-pointer flex-col">
+          
+         {user?.email && <NavLink to={'/Funding'} className="group flex  cursor-pointer flex-col">
             Funding<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
-          </NavLink>
-          {/* {user?.email && <NavLink to={'/dashboard'} className="group flex  cursor-pointer flex-col">
-            Dashboard<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-700 transition-all duration-300 group-hover:w-full"></span>
           </NavLink>}
-        */}
+       
           {user?.email ?
       
         (
+          
           <li className="relative mr-5">
                 <button onClick={() => setDropDownState(!dropDownState)} className="relative rounded-full flex items-center gap-1 py-2 ">
                     <span><img src={user?.photoURL || "file.png"} className='w-10 h-10 rounded-full  ' alt="" /></span>

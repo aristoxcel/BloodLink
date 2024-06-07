@@ -1,17 +1,12 @@
 import MenuItem from "../../Components/MenuItem"
-import { BsFillHouseAddFill } from 'react-icons/bs'
-import { MdHomeWork, MdOutlineManageHistory } from 'react-icons/md'
+import { MdOutlineBloodtype } from "react-icons/md"
+import { MdHomeWork } from 'react-icons/md'
 
 function VolunteerMenu() {
     return (
         <>
-          <MenuItem icon={BsFillHouseAddFill} label='Add Room' address='add-room' />
-          <MenuItem icon={MdHomeWork} label='My Listings' address='my-listings' />
-          <MenuItem
-            icon={MdOutlineManageHistory}
-            label='Manage Bookings'
-            address='manage-bookings'
-          />
+          <MenuItem icon={MdOutlineBloodtype } label='All Blood Donation Request' address='/dashboard/all-blood-donation-request' />
+          <MenuItem icon={MdHomeWork} label='Content Management' address='/dashboard/content-management' />
         </>
       )
 }
