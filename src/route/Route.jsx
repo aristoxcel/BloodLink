@@ -7,11 +7,11 @@ import DonationRequest from "../DonationRequest/DonationRequest";
 import SearchDonor from "../SearchDonor/SearchDonor";
 import Blog from "../Blog/Blog";
 import Funding from "../Funding/Funding";
-import AdminHome from "../Dashboard/AdminDashboard/AdminHome";
 import Dashboard from "../Layout/Dashboard";
 import Profile from "../Dashboard/Profile";
 import AllUsers from "../Dashboard/AdminDashboard/AllUsers";
 import CreateDonationRequest from "../Dashboard/DonarDashboard/CreateDonationRequest";
+import DashHome from "../Dashboard/DashHome";
 
 
 
@@ -33,7 +33,7 @@ export const router =createBrowserRouter([
       path:'/dashboard',
       element:<Dashboard></Dashboard>,
       children:[
-        {index:true, element:<AdminHome></AdminHome>},
+        {index:true, element:<DashHome></DashHome>},
         {path:'profile', element:<Profile></Profile>},
         {path:'allUsers', element:<AllUsers></AllUsers>},
 

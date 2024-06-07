@@ -8,6 +8,7 @@ import useAuth from "../Authentication/hooks/useAuth"
 import useRole from "../Authentication/hooks/useRole"
 import MenuItem from "./MenuItem"
 import DonarMenu from "../Dashboard/DonarDashboard/DonarMenu"
+import toast from "react-hot-toast"
 
 
 function Sidebar() {
@@ -20,7 +21,15 @@ function Sidebar() {
     const handleToggle = () => {
       setActive(!isActive)
     }
-  
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { 
+              console.log('logout');
+              toast.success("You Logged Out Successfully")
+            })
+            .catch(error => console.log(error));
+    }
     // const toggleHandler = event => {
     //   setToggle(event.target.checked)
     // }
@@ -86,7 +95,7 @@ function Sidebar() {
                   address='/dashboard'
                   icon={HiHomeModern}
                 />
-                {role === 'donor' && <DonarMenu />}
+                {role === 'donar' && <DonarMenu />}
                 {role === 'volunteer' && <VolunteerMenu/>}
                 {role === 'admin' && <AdminMenu />}
               </nav>
@@ -104,7 +113,7 @@ function Sidebar() {
             />
   
             <button
-              onClick={logOut}
+              onClick={handleLogOut}
               className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
             >
               <FcSettings  className='w-5 h-5' />
