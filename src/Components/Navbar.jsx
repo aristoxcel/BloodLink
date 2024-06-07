@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { useRef } from 'react';
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -100,21 +99,34 @@ export const Navbar = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer" > <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /> </svg>
           {dropDownState && (
             <ul className=" z-10  gap-2  bg-[#c4052bcd]  absolute right-0 top-11 flex w-[200px] flex-col  rounded-lg   text-base ">
-              <li className="cursor-pointer  px-6 py-2 text-white rounded-t-lg hover:bg-sky-700 ">
+              <NavLink  to={'/'}  className="cursor-pointer  px-6 py-2 text-white rounded-t-lg hover:bg-sky-700 ">
                 Home
-              </li>
-              <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              </NavLink>
+              <NavLink to={'/Add-Donar'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Add Donar Request
-              </li>
-              <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              </NavLink>
+              <NavLink to={'/Search-Donar'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Search Donar
-              </li>
-              <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              </NavLink>
+              <NavLink to={'/Blog'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Blog
-              </li>
-              <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              </NavLink>
+              <NavLink  to={'/Funding'} className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Funding
-              </li>
+              </NavLink>
+             {user?.email ?<>
+              <NavLink to={'/dashboard'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              Dashboard
+              </NavLink>
+              <NavLink  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 " onClick={handleLogOut}>
+              Logout
+              </NavLink>
+             </>
+              :
+              <NavLink to={'/login'} className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              Login
+              </NavLink>
+            }
             </ul>
           )}
         </div>
