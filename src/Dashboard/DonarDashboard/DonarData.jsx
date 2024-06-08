@@ -67,7 +67,7 @@ const DonarData = ({ user, refetch, handleDelete }) => {
         <button onClick={() => handleDelete(user?._id)} className='text-gray-900 whitespace-no-wrap'><MdDelete className='text-3xl hover:text-4xl hover:text-red-600'/></button>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'><Link to={`/recipient/${user?._id}`}><GrOverview className='text-2xl hover:text-3xl hover:text-yellow-600'/></Link> </p>
+        <p className='text-gray-900 whitespace-no-wrap'><Link to={`/donationDetail/${user?._id}`}><GrOverview className='text-2xl hover:text-3xl hover:text-yellow-600'/></Link> </p>
       </td>
       
     </tr>

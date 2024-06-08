@@ -15,6 +15,7 @@ import AllBloodDonationReq from "../Dashboard/VolunteerDashvoard/AllBloodDonatio
 import ContentManagement from "../Dashboard/VolunteerDashvoard/ContentManagement";
 import MyDonationReq from "../Dashboard/DonarDashboard/MyDonationReq";
 import SearchBlood from "../SearchBlood/SearchBlood";
+import DonationDetail from "../DonationDetail/DonationDetail";
 
 
 
@@ -29,7 +30,8 @@ export const router =createBrowserRouter([
         {path:'/Blood-Request', element:<DonationRequest></DonationRequest>},
         {path:'/Search-Blood', element:<SearchBlood></SearchBlood>},
         {path:'/Blog', element:<Blog></Blog>},
-        {path:'/Funding', element:<Funding></Funding>}
+        {path:'/Funding', element:<Funding></Funding>},
+        {path:'/donationDetail/:id', element:<DonationDetail></DonationDetail>}
       ]
     },
     {
