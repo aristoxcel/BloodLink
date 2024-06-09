@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import ThreeDotMenu from '../../Components/ThreeDotMenu'
 import { FaEdit } from "react-icons/fa"
 import { MdDelete } from "react-icons/md";
 import { GrOverview } from "react-icons/gr";
 import { Link } from 'react-router-dom';
+import ReqStatus from '../../Components/ReqStatus';
 
 // import UpdateUserModal from '../../../Modal/UpdateUserModal'
 // import { updateRole } from '../../../../api/auth'
@@ -52,7 +52,7 @@ const DonarData = ({ user, refetch, handleDelete }) => {
       </td>
 
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-      <ThreeDotMenu userId={user._id} initialStatus={user.status} />
+      <ReqStatus userId={user._id} initialStatus={user.status} />
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>{user?.name}</p>

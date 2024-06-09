@@ -16,6 +16,7 @@ import ContentManagement from "../Dashboard/VolunteerDashvoard/ContentManagement
 import MyDonationReq from "../Dashboard/DonarDashboard/MyDonationReq";
 import SearchBlood from "../SearchBlood/SearchBlood";
 import DonationDetail from "../DonationDetail/DonationDetail";
+import DonationDetailPublic from "../DonationDetail/DonationDetailPublic";
 
 
 
@@ -31,7 +32,8 @@ export const router =createBrowserRouter([
         {path:'/Search-Blood', element:<SearchBlood></SearchBlood>},
         {path:'/Blog', element:<Blog></Blog>},
         {path:'/Funding', element:<Funding></Funding>},
-        {path:'/donationDetail/:id', element:<DonationDetail></DonationDetail>}
+        {path:'/donationDetail/:id', element:<DonationDetail></DonationDetail>},
+        {path:'/donationDetailPublic/:id', element:<DonationDetailPublic></DonationDetailPublic>}
       ]
     },
     {
