@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 function Banner() {
@@ -15,8 +16,8 @@ function Banner() {
         <h1 className="w-3/5 pt-4 lg:pt-6 text-2xl md:text-3xl  font-semibold text-sky-900 lg:text-red-700">Be part of the BloodLink and Sign up to donate blood with pride </h1>
        </div>
        <div className="absolute lg:bottom-96 md:bottom-96 bottom-44 lg:right-64 md:right-32 right-6 flex gap-6">
-        <button className="btn px-6 py-2 bg-[#c4052bcd] rounded-md shadow-md text-white text-xl font-roboto font-bold hover:text-[#c4052bcd] hover:bg-white  border border-red-100">Join as a Donar</button>
-        <button className="btn  px-6 py-2 text-[#c4052bcd] rounded-md shadow-md text-xl font-roboto font-bold hover:text-white hover:bg-[#c4052bcd] border border-red-100">Search Donars</button>
+        <Link to={'/SignUp'}><button className="btn px-6 py-2 bg-[#c4052b] rounded-md shadow-md text-white text-xl font-roboto font-bold hover:text-[#c4052bcd] hover:bg-white  border border-red-100">Join as a Donar</button></Link>
+        <Link to={'/Search-Blood'}><button className="btn  px-6 py-2 text-[#c4052bcd] rounded-md shadow-md text-xl font-roboto font-bold hover:text-white hover:bg-[#c4052b] border border-red-100">Search Donors</button></Link>
        </div>
     </div>
     </div>

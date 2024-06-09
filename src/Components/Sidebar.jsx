@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { FcSettings } from 'react-icons/fc'
 import { HiHomeModern, HiOutlineBars3BottomRight } from "react-icons/hi2"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import AdminMenu from "../Dashboard/AdminDashboard/AdminMenu"
 import VolunteerMenu from "../Dashboard/VolunteerDashvoard/VolunteerMenu"
 import useAuth from "../Authentication/hooks/useAuth"
@@ -12,6 +12,7 @@ import toast from "react-hot-toast"
 
 
 function Sidebar() {
+  const navigate = useNavigate()
     const { logOut } = useAuth()
     const [isActive, setActive] = useState(false)
     // const [toggle, setToggle] = useState(true)
@@ -26,6 +27,7 @@ function Sidebar() {
         logOut()
             .then(() => { 
               console.log('logout');
+              navigate('/')
               toast.success("You Logged Out Successfully")
             })
             .catch(error => console.log(error));

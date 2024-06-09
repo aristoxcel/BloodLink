@@ -5,6 +5,8 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import Swal from "sweetalert2";
+
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -57,13 +59,25 @@ function Profile() {
       };
 
       const updateRes = await axiosPublic.put(`/user/${user?.email}`, userData);
+      
+      
       console.log(updateRes.data);
+      if(updateRes.data.modifiedCount>0){
+        refetch()
+        Swal.fire({
+          icon: "success",
+          title: "you logged in successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        
+      }
     } catch (error) {
       console.error("Error updating profile:", error);
     }
   };
 
-  const { data: donor = [] } = useQuery({
+  const { data: donor = [], refetch } = useQuery({
     queryKey: ["donor"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/donar?email=${user.email}`);
@@ -88,7 +102,7 @@ function Profile() {
         <div className="flex justify-end mb-4">
           <button
             onClick={() => setIsOpen(true)}
-            className="bg-[#F43F5E] px-6 py-2 rounded-lg text-white cursor-pointer hover:bg-[#af4053]"
+            className="bg-[#c4052b] px-6 py-2 rounded-lg text-white cursor-pointer hover:bg-[#F43F5E]"
           >
             Edit Profile
           </button>
@@ -202,7 +216,7 @@ function Profile() {
                   <div className="flex justify-center mt-4">
                     <button
                       type="submit"
-                      className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-400"
+                      className="bg-[#c4052b] text-white px-4 py-2 rounded-lg hover:bg-blue-400"
                     >
                       Save
                     </button>

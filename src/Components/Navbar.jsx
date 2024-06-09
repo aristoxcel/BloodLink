@@ -44,9 +44,9 @@ export const Navbar = () => {
     // }, []);
 
     return (
-        <nav className="relative flex items-center justify-between bg-[#c4052bcd] px-4 py-2 text-white">
+        <nav className="relative flex items-center justify-between bg-[#c4052b] px-4 py-2 text-white">
         <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold text-white transition-all duration-200 hover:scale-110">
-          <h2 className='flex items-center'><img src="file.png" alt="" className='h-10 mr-2'/><span className='text-2xl'>Blood</span><span className=' font-bold text-sky-700'>Link</span></h2>
+          <h2 className='flex items-center'><img src="file.png" alt="" className='h-10 mr-2'/><span className='text-2xl'>BloodLink</span></h2>
         </div>
         <ul className="hidden items-center justify-between gap-10 md:gap-5 lg:gap-10 font-semibold  md:flex">
           <NavLink to={'/'} className="group flex  cursor-pointer flex-col pl-2">
@@ -105,7 +105,7 @@ export const Navbar = () => {
               <NavLink to={'/Add-Donar'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Add Donar Request
               </NavLink>
-              <NavLink to={'/Search-Donar'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
+              <NavLink to={'/Search-Blood'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
               Search Donar
               </NavLink>
               <NavLink to={'/Blog'}  className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-700 ">
