@@ -12,11 +12,12 @@ import AllUsers from "../Dashboard/AdminDashboard/AllUsers";
 import CreateDonationRequest from "../Dashboard/DonarDashboard/CreateDonationRequest";
 import DashHome from "../Dashboard/DashHome";
 import AllBloodDonationReq from "../Dashboard/VolunteerDashvoard/AllBloodDonationReq";
-import ContentManagement from "../Dashboard/VolunteerDashvoard/ContentManagement";
+import ContentManagement from "../Dashboard/AdminDashboard/ContentManagement";
 import MyDonationReq from "../Dashboard/DonarDashboard/MyDonationReq";
 import SearchBlood from "../SearchBlood/SearchBlood";
 import DonationDetail from "../DonationDetail/DonationDetail";
 import DonationDetailPublic from "../DonationDetail/DonationDetailPublic";
+import AddBlog from "../Dashboard/AddBlog";
 
 
 
@@ -53,6 +54,7 @@ export const router =createBrowserRouter([
         
         {path:'all-blood-donation-request', element:<AllBloodDonationReq></AllBloodDonationReq>},
         {path:'content-management', element:<ContentManagement></ContentManagement>},
+        {path:'add-blog', element:<AddBlog></AddBlog>},
      
       ]
     }

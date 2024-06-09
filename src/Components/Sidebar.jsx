@@ -69,11 +69,11 @@ function Sidebar() {
         >
           <div>
             <div>
-              <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
-                <Link to='/' className="flex items-center gap-2">
+              <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-[#c4052b] mx-auto'>
+                <Link to='/' className="flex items-center gap-2 text-white font-bold">
                   <img
                     // className='hidden md:block'
-                    src='file.png'
+                    src='https://i.ibb.co/gS0npFY/file.png'
                     alt='logo'
                     width='40'
                     height='40'
