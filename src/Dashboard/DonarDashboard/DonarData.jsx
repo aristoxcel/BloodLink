@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { FaEdit } from "react-icons/fa"
 import { MdDelete } from "react-icons/md";
 import { GrOverview } from "react-icons/gr";
@@ -9,7 +9,7 @@ import ReqStatus from '../../Components/ReqStatus';
 // import { updateRole } from '../../../../api/auth'
 // import { toast } from 'react-hot-toast'
 const DonarData = ({ user, refetch, handleDelete }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
 //   const modalHandler = async role => {
 //     try {
 //       const data = await updateRole({ email: user?.email, role })
