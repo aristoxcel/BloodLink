@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Authentication/hooks/useAxiosSecure";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useRole from "../../Authentication/hooks/useRole";
 
 
 function ContentManagement() {
@@ -11,6 +12,7 @@ function ContentManagement() {
   const [filter, setFilter] = useState('all');
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure()
+  const [role] = useRole()
   // const [loading, setLoading]= useState(false)
 
   const {data, refetch, isLoading}=useQuery({
@@ -100,15 +102,20 @@ if(isLoading) return <LoadingSpinner/>
           <div key={blog._id} className="bg-white p-4 rounded shadow">
             <img src={blog.thumbnail} alt="" className="h-72"/>
             <h2 className="text-xl font-bold">{blog.title}</h2>
-            <p>{blog.content.slice(0,500)}.. .</p>
-            <div className="mt-4 flex justify-between items-center">
+            <div className="prose" dangerouslySetInnerHTML={{ __html: blog.content.slice(0,500) }}></div>
+            {
+              role === "admin" && 
+              <>
+              <div className="mt-4 flex justify-between items-center">
               {blog.status === 'draft' ? (
                 <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handlePublish(blog._id)}>Publish</button>
               ) : (
                 <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={() => handleUnpublish(blog._id)}>Unpublish</button>
               )}
-              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleDelete(blog._id)}>Delete</button>
+              <button className="bg-[#c4052b] text-white px-4 py-2 rounded" onClick={() => handleDelete(blog._id)}>Delete</button>
             </div>
+              </>
+            }
           </div>
         ))}
       </div>

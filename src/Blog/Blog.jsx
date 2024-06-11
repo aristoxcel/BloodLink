@@ -67,9 +67,9 @@ if(isLoading) return <LoadingSpinner/>
           <div key={blog._id} className="bg-white p-4 rounded shadow">
             <img src={blog.thumbnail} alt="" className="h-72"/>
             <h2 className="text-xl font-bold">{blog.title}</h2>
-            <p>{blog.content.slice(0,500)}.. .</p>
+            <div className="prose" dangerouslySetInnerHTML={{ __html: blog.content.slice(0,350) }}></div>
             <div className="mt-4 flex justify-between items-center">
-              <Link to={`/blogDetail/${blog._id}`}><button className="bg-red-500 text-white px-4 py-2 rounded" >Read More..</button></Link>
+              <Link to={`/blogDetail/${blog._id}`}><button className="bg-[#c4052b] text-white px-4 py-2 rounded" >Read More..</button></Link>
             </div>
           </div>
         ))}

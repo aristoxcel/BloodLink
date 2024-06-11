@@ -8,7 +8,7 @@ import ReqStatus from '../../Components/ReqStatus';
 // import UpdateUserModal from '../../../Modal/UpdateUserModal'
 // import { updateRole } from '../../../../api/auth'
 // import { toast } from 'react-hot-toast'
-const DonarData = ({ user, refetch, handleDelete }) => {
+const DonarData = ({ user, refetch, handleDelete, role }) => {
   // const [isOpen, setIsOpen] = useState(false)
 //   const modalHandler = async role => {
 //     try {
@@ -23,6 +23,7 @@ const DonarData = ({ user, refetch, handleDelete }) => {
 //       setIsOpen(false)
 //     }
 //   }
+
   return (
     <tr>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -60,12 +61,16 @@ const DonarData = ({ user, refetch, handleDelete }) => {
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>{user?.email}</p>
       </td>
+      {role !== "volunteer"&& 
+      <>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'><Link to={'create-donation-request'}><FaEdit  className='text-2xl hover:text-3xl hover:text-green-600'></FaEdit></Link></p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button onClick={() => handleDelete(user?._id)} className='text-gray-900 whitespace-no-wrap'><MdDelete className='text-3xl hover:text-4xl hover:text-red-600'/></button>
       </td>
+      </>
+      }
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'><Link to={`/donationDetail/${user?._id}`}><GrOverview className='text-2xl hover:text-3xl hover:text-yellow-600'/></Link> </p>
       </td>

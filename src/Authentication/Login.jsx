@@ -10,14 +10,14 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 function Login() {
-  const { signIn , loading, setLoading} = useAuth();
+  const { signIn , loading, setLoading, user} = useAuth();
   const [registers, setRegisters] = useState(false);
 const [error, setError]= useState(null);
 const [success, setSuccess]=useState(null)
 const navigate = useNavigate()
 const location = useLocation()
 const from = location?.state || '/';
-
+console.log(from)
 
 const {
     register,
@@ -34,13 +34,13 @@ const {
         signIn(data.email, data.password)
         .then(()=>{
             setSuccess('you logged in successfully')
+
             Swal.fire({
               icon: "success",
               title: "you logged in successfully",
               showConfirmButton: false,
               timer: 1500
-            });
-          navigate(from, {replace:true});
+            });navigate(from)
         })
         .catch(()=>{setError('Email or Password is not matching')
                 Swal.fire({
@@ -49,11 +49,10 @@ const {
                   showConfirmButton: false,
                   timer: 1500
                 });
-      })
+      });
         reset()
       }
       console.log(errors);
-
 
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-99px)] bg-cover bg-no-repeat ' style={{

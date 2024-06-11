@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../Authentication/hooks/useAxiosSecure";
 import JoditEditor from 'jodit-react';
+import { TbFidgetSpinner } from "react-icons/tb";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -15,9 +16,11 @@ function AddBlog() {
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState(null);
     const [content, setContent] = useState('');
+    const [loading, setLoading] = useState(false);
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+      setLoading(true)
       let thumbnailUrl = '';
   
       if (thumbnail) {
@@ -34,7 +37,10 @@ function AddBlog() {
         status: 'draft',
       };
       axiosSecure.post('/blogs', newBlog)
-      .then(() => navigate('/dashboard/content-management'))
+      .then(() => {
+        setLoading(false)
+        navigate('/dashboard/content-management')
+      })
       .catch(error => console.error('Error creating blog:', error));
   };
   return (
@@ -68,7 +74,11 @@ function AddBlog() {
         />
       </div>
       <button type="submit" className="bg-[#c4052b] text-white px-4 py-2 rounded">
-        Create
+      {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Create'
+              )}
       </button>
     </form>
   </div>

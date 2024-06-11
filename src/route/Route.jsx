@@ -19,6 +19,8 @@ import DonationDetail from "../DonationDetail/DonationDetail";
 import DonationDetailPublic from "../DonationDetail/DonationDetailPublic";
 import AddBlog from "../Dashboard/AddBlog";
 import BlogDetail from "../Blog/BlogDetail";
+import ErrorPage from "../Authentication/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -26,6 +28,7 @@ export const router =createBrowserRouter([
     {
       path:'/',
       element:<MainLayout></MainLayout>,
+      errorElement: <ErrorPage/>,
       children:[
         {path:'/', element:<Home></Home>},
         {path:'/login', element:<Login></Login>},
@@ -33,7 +36,7 @@ export const router =createBrowserRouter([
         {path:'/Blood-Request', element:<DonationRequest></DonationRequest>},
         {path:'/Search-Blood', element:<SearchBlood></SearchBlood>},
         {path:'/Blog', element:<Blog></Blog>},
-        {path:'/blogDetail/:id', element:<BlogDetail></BlogDetail>},
+        {path:'/blogDetail/:id', element:<PrivateRoute><BlogDetail></BlogDetail></PrivateRoute>},
         {path:'/Funding', element:<Funding></Funding>},
         {path:'/donationDetail/:id', element:<DonationDetail></DonationDetail>},
         {path:'/donationDetailPublic/:id', element:<DonationDetailPublic></DonationDetailPublic>}
