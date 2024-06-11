@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import useAuth from "./hooks/useAuth";
 import useAxiosPublic from "./hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -13,7 +14,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 function Signup() {
 
-    const {createUser, updateUserProfile} = useAuth()
+    const {createUser, updateUserProfile, setLoading, loading} = useAuth()
     const navigate = useNavigate()
     const axiosPublic = useAxiosPublic()
 
@@ -189,8 +190,8 @@ function Signup() {
             </div>
 
 
-            <div className="flex justify-between items-center gap-3 mt-3">
-            <div className="w-full border text-gray-700 bg-white rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300">
+            <div className="flex justify-between items-center gap-4 mt-3">
+            <div className="flex justify-between w-full border px-3 py-2 text-gray-700 bg-white rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300">
             <label htmlFor="district">District:</label>
       <select
         id="district"
@@ -207,8 +208,8 @@ function Signup() {
       </select>
             </div>
 
-            <div className="w-full border">
-            <label htmlFor="upazila">Upazila:</label>
+      <div className=" flex justify-between w-full border px-3 py-2 text-gray-700 bg-white rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300">
+      <label htmlFor="upazila">Upazila</label>
       <select
         id="upazila"
         name="upazila"
@@ -264,10 +265,15 @@ function Signup() {
             </div>
             <div className='mt-6'>
               <button
+              disabled={loading}
                 type='submit'
                 className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#c4052b] rounded-lg hover:bg-red-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
               >
-                Sign Up
+                {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Sign Up'
+              )}
               </button>
             </div>
           </form>
@@ -276,7 +282,7 @@ function Signup() {
 
             <Link
               to='/login'
-              className='text-xs text-gray-500 uppercase  hover:underline'
+              className='text-xs text-black font-bold uppercase  hover:underline'
             >
               or Log In
             </Link>

@@ -70,7 +70,7 @@ function CreateDonationRequest() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-12">
       <div className="flex justify-between mb-4">
         <div className="text-lg font-semibold">Requester Name: <span className="uppercase">{user?.displayName}</span></div>
         <div className="text-lg font-semibold">Requester Email: {user?.email}</div>
@@ -221,7 +221,7 @@ function CreateDonationRequest() {
         <div className="mt-6">
           <button
             type="submit"
-            className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+            className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#c4052b] rounded-lg hover:bg-red-500 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
           >
             Create Donation Request
           </button>

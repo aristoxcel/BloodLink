@@ -1,11 +1,11 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import ThreeDotMenu from '../../Components/ThreeDotMenu'
 import RoleChange from '../../Components/RoleChange'
 // import UpdateUserModal from '../../../Modal/UpdateUserModal'
 // import { updateRole } from '../../../../api/auth'
 // import { toast } from 'react-hot-toast'
 const UserData = ({ user, refetch }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
 //   const modalHandler = async role => {
 //     try {
 //       const data = await updateRole({ email: user?.email, role })

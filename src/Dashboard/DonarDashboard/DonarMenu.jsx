@@ -48,7 +48,7 @@ function DonarMenu() {
         />
         <MenuItem
           icon={BiSolidDonateBlood}
-          label='Blood Donation Request'
+          label='Create Donation Request'
           address='/dashboard/create-donation-request'
         />
   

@@ -10,6 +10,7 @@ function SearchBlood() {
   const [districts, setDistricts] = useState([]);
   const [upazilas, setUpazilas] = useState([]);
   const [donors, setDonors] = useState([]);
+  const [found, setFound]=useState(false)
 
   useEffect(() => {
     // Fetch districts data
@@ -35,15 +36,17 @@ function SearchBlood() {
     try {
       const response = await axiosPublic.get(`/donors`, {
         params: { bloodGroup, district, upazila },
+        
       });
       setDonors(response.data);
+      setFound(true)
     } catch (error) {
       console.error("Error fetching donors:", error);
     }
   };
 
   return (
-    <div className="container mx-auto p-4 pt-14">
+    <div className="container mx-auto p-4 lg:px-52 pt-14">
       <h1 className="text-3xl font-bold mb-4">Search Blood Donors</h1>
       <form onSubmit={handleSearch} className="mb-6">
         <div className="mb-4">
@@ -101,7 +104,8 @@ function SearchBlood() {
           Search
         </button>
       </form>
-      {donors.length > 0 ? (
+      {found && <>
+        {donors.length > 0 ? (
         <div className="mt-6">
           <h2 className="text-2xl font-bold mb-4">Donor List</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -117,6 +121,8 @@ function SearchBlood() {
         </div>
       ):
       <div className="flex justify-center text-3xl mt-12">No matching donar found</div>
+      }</>
+     
       }
     </div>
   );
