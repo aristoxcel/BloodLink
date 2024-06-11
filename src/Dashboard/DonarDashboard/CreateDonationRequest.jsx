@@ -186,7 +186,7 @@ function CreateDonationRequest() {
               Hospital
             </label>
             <input
-              {...register('hospital', { required: true })}
+              {...register('hospital')}
               placeholder="If Hospitalized"
               className="mt-1 block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-40"
               type="text"

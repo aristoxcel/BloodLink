@@ -10,7 +10,7 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 function Login() {
-  const { signIn , loading, setLoading, user} = useAuth();
+  const { signIn , loading } = useAuth();
   const [registers, setRegisters] = useState(false);
 const [error, setError]= useState(null);
 const [success, setSuccess]=useState(null)

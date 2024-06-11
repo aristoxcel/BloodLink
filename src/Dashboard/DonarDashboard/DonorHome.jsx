@@ -129,7 +129,7 @@ function DonorHome() {
               </thead>
               <tbody>
                 { donorReq &&
-                  donorReq.slice(0,3).map(user => (
+                  donorReq.slice(-3).map(user => (
                     <DonarData
                       key={user._id}
                       user={user}

@@ -28,20 +28,7 @@ export const Navbar = () => {
           .catch(error => console.log(error));
   }
 
-    // useEffect(() => {
-    //     const closeDropDown = (e) => {
-    //         if (.current?.contains(e?.target)) {
-    //             setDropDownState(false);
-    //         }
-    //     };
 
-    //     document.addEventListener('mousedown', closeDropDown);
-        
-
-    //     return () => {
-    //         document.removeEventListener('mousedown', closeDropDown);
-    //     };
-    // }, []);
 
     return (
         <nav className="relative flex items-center justify-between bg-[#c4052b] px-4 py-2 text-white">
@@ -77,7 +64,7 @@ export const Navbar = () => {
                     <svg className={`${dropDownState ? '' : 'rotate-180'}`} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6" /></svg>
                 </button>
                 {dropDownState && (
-                    <ul className="absolute top-14 right-2 !z-[999] space-y-2 rounded-lg bg-[#c4052bcd] p-2 px-4 text-gray-100">
+                    <ul className="absolute top-14 right-2 !z-[999] space-y-2 rounded-lg bg-[#c4052b] p-2 px-4 text-gray-100">
                         <NavLink to={'/dashboard'}  className="group flex  cursor-pointer flex-col">
                         Dashboard<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
                          </NavLink>
