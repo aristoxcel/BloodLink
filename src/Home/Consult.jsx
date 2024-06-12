@@ -3,7 +3,7 @@ import { MdArrowRight } from "react-icons/md";
 function Consult() {
   return (
     <div className="relative py-1 h-[500px] my-16">
-      <div className="bg-[url('bloodDonate.jpg')] my-10">
+      <div className=" my-10" style={{ backgroundImage: "url('https://i.ibb.co/Byb3hx8/blood-Donate.jpg')" }}>
         <div className="bg-black opacity-40">
           <div className="lg:w-[70%] md:w-4/5 mx-auto grid grid-cols-2 gap-5 px-3 md:px-0 ">
             <div
