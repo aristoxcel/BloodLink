@@ -24,9 +24,9 @@ Password: asdf12
 - Search functionality to find donors by blood group, district and upazila.
 
 4.Funding and Donations:
-Users can donate money to support the organization.
-Integrated Stripe payment gateway for secure transactions.
-Track total funds and individual donations.
+- Users can donate money to support the organization.
+- Integrated Stripe payment gateway for secure transactions.
+- Track total funds and individual donations.
 
 5.Content Management:
 - Admins can add, edit, publish, and delete blog posts.
@@ -75,5 +75,5 @@ Deployment:
 Vercel
 
 Contact
-For any inquiries or issues, please contact rakib@example.com.
+For any inquiries or issues, please contact aristoxcel@gmail.com.
 
