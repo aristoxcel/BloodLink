@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
+
 // import { useState } from 'react'
 import ThreeDotMenu from '../../Components/ThreeDotMenu'
 import RoleChange from '../../Components/RoleChange'
 
-const UserData = ({ user, refetch }) => {
+const UserData = ({ user }) => {
 
   return (
     <tr>

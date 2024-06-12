@@ -40,7 +40,7 @@ export const router =createBrowserRouter([
         {path:'/blogDetail/:id', element:<PrivateRoute><BlogDetail></BlogDetail></PrivateRoute>},
         {path:'/Funding', element:<Funding></Funding>},
         {path:'/donationDetail/:id', element:<PrivateRoute><DonationDetail></DonationDetail></PrivateRoute>},
-        {path:'/donationDetailPublic/:id', element:<DonationDetailPublic></DonationDetailPublic>}
+        {path:'/donationDetailPublic/:id', element:<PrivateRoute><DonationDetailPublic></DonationDetailPublic></PrivateRoute>}
       ]
     },
     {

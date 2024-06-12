@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 // import { useState } from 'react'
 import { FaEdit } from "react-icons/fa"
 import { MdDelete } from "react-icons/md";
@@ -56,7 +58,7 @@ const DonarData = ({ user, refetch, handleDelete, role }) => {
       {role !== "volunteer"&& 
       <>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'><Link to={'create-donation-request'}><FaEdit  className='text-2xl hover:text-3xl hover:text-green-600'></FaEdit></Link></p>
+        <p className='text-gray-900 whitespace-no-wrap'><Link to={'/dashboard/create-donation-request'}><FaEdit  className='text-2xl hover:text-3xl hover:text-green-600'></FaEdit></Link></p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button onClick={() => handleDelete(user?._id)} className='text-gray-900 whitespace-no-wrap'><MdDelete className='text-3xl hover:text-4xl hover:text-red-600'/></button>

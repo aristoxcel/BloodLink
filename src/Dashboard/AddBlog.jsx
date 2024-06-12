@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../Authentication/hooks/useAxiosSecure";
 import JoditEditor from 'jodit-react';
 import { TbFidgetSpinner } from "react-icons/tb";
+import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -13,6 +14,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 function AddBlog() {
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic()
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState(null);
     const [content, setContent] = useState('');
@@ -26,7 +28,7 @@ function AddBlog() {
       if (thumbnail) {
         const formData = new FormData();
         formData.append('image', thumbnail);
-        const response = await axiosSecure.post(image_hosting_api, formData);
+        const response = await axiosPublic.post(image_hosting_api, formData);
         thumbnailUrl = response.data.data.display_url;
       }
   

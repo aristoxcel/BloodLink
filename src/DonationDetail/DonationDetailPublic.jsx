@@ -30,7 +30,7 @@ function DonationDetailPublic() {
     if (!requestDetails) {
         return <LoadingSpinner/>;
       }
-      console.log(requestDetails)
+
       const {name, email, recipient, bloodGroup, date, time, district, upazila, hospital, address, msg}= requestDetails
 
 

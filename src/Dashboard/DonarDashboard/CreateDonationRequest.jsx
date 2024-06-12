@@ -54,7 +54,7 @@ function CreateDonationRequest() {
       msg: data.msg,
       status: 'Pending'
     };
-    console.log(request);
+
 
     const bloodReq = await axiosPublic.post('/donationRequest', request);
     if(bloodReq.data.insertedId){

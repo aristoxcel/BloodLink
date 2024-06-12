@@ -8,13 +8,13 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-// const image_hosting_key = d9517916345f9c439c21191c892aec3e;
+
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 
 function Signup() {
 
-    const {createUser, updateUserProfile, setLoading, loading} = useAuth()
+    const {createUser, updateUserProfile, loading} = useAuth()
     const navigate = useNavigate()
     const axiosPublic = useAxiosPublic()
 
@@ -88,7 +88,7 @@ function Signup() {
               title: "you registered successfully",
               timer: 1500
             });
-              navigate('/login');
+              navigate('/');
           }
 
         })

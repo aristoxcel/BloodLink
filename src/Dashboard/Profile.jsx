@@ -1,20 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
 import useAuth from "../Authentication/hooks/useAuth";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Authentication/hooks/useAxiosSecure";
+import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
+import { TbFidgetSpinner } from "react-icons/tb";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 function Profile() {
+  const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
-  const { user, updateUserProfile } = useAuth();
+  const { user, updateUserProfile, } = useAuth();
   let [isOpen, setIsOpen] = useState(false);
+  let [load, setLoad] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [districts, setDistricts] = useState([]);
@@ -42,6 +46,7 @@ function Profile() {
 
   const onSubmit = async (data) => {
     try {
+      setLoad(true)
       const formData = new FormData();
       formData.append("image", data.image[0]);
 
@@ -58,14 +63,14 @@ function Profile() {
         image: imageUrl,
       };
 
-      const updateRes = await axiosPublic.put(`/user/${user?.email}`, userData);
+      const updateRes = await axiosSecure.put(`/user/${user?.email}`, userData);
       
-      
+      setLoad(false)
       if(updateRes.data.modifiedCount>0){
         refetch()
         Swal.fire({
           icon: "success",
-          title: "you logged in successfully",
+          title: "profile update successfully",
           showConfirmButton: false,
           timer: 1500
         });
@@ -79,7 +84,7 @@ function Profile() {
   const { data: donor = [], refetch } = useQuery({
     queryKey: ["donor"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/donar?email=${user.email}`);
+      const res = await axiosSecure.get(`/donar?email=${user.email}`);
       return res.data;
     },
   });
@@ -215,9 +220,14 @@ function Profile() {
                   <div className="flex justify-center mt-4">
                     <button
                       type="submit"
+                      disabled={load}
                       className="bg-[#c4052b] text-white px-4 py-2 rounded-lg hover:bg-[#F43F5E]"
                     >
-                      Save
+                      {load ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Save'
+              )}
                     </button>
                   </div>
                 </form>
