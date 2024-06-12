@@ -121,6 +121,13 @@ function Sidebar() {
   
               <span className='mx-4 font-medium'>Logout</span>
             </button>
+            <div className="relative">
+              <img src="/side.png" alt="" className="w-full h-28"/>
+              <h1 className="text-[#c4052b] font-bold absolute bottom-12 right-0" >BloodLink</h1>
+              <h1 className="text-[#c4052b]  font-semibold absolute bottom-8 right-0">+8801911309454</h1>
+              <h1 className="text-[#c4052b] font-semibold absolute bottom-4 right-0">Dhaka, Bangladesh</h1>
+              <h1 className="text-[#c4052b]  font-semibold absolute bottom-0 right-0">aristoxcel@gmail.com</h1>
+            </div>
           </div>
         </div>
       </>
