@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet-async"
 
 
 function Funding() {
   return (
-    <div>Funding</div>
+    <div>
+      <Helmet>
+        <title>BloodLink | Funding Page</title>
+      </Helmet>
+    </div>
   )
 }
 

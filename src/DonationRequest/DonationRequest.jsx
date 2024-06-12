@@ -3,6 +3,7 @@ import useAuth from '../Authentication/hooks/useAuth';
 import useAxiosPublic from '../Authentication/hooks/useAxiosPublic';
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 function DonationRequest() {
   const {user}=useAuth
@@ -20,9 +21,9 @@ function DonationRequest() {
   return (
     <>
     <div className='container mx-auto px-4 sm:px-8 mt-16'>
-      {/* <Helmet>
-        <title>Manage Users</title>
-      </Helmet> */}
+      <Helmet>
+        <title>BloodLink | Blood Donation Request</title>
+      </Helmet>
       <h1 className="text-3xl font-bold font-roboto text-center">Blood Donation Request</h1>
       <div className='py-8'>
         <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>

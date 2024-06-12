@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 
 function SearchBlood() {
@@ -46,7 +47,11 @@ function SearchBlood() {
   };
 
   return (
+    
     <div className="container mx-auto p-4 lg:px-52 pt-14">
+      <Helmet>
+        <title>BloodLink | Search Blood</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-4">Search Blood Donors</h1>
       <form onSubmit={handleSearch} className="mb-6">
         <div className="mb-4">

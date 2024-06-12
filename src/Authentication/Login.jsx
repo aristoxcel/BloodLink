@@ -10,14 +10,14 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 function Login() {
-  const { signIn , loading } = useAuth();
+  const { signIn , loading, setLoading } = useAuth();
   const [registers, setRegisters] = useState(false);
 const [error, setError]= useState(null);
 const [success, setSuccess]=useState(null)
 const navigate = useNavigate()
 const location = useLocation()
 const from = location?.state || '/';
-console.log(from)
+
 
 const {
     register,
@@ -31,6 +31,7 @@ const {
       const loginData = (data) => {
         setError('')
         setSuccess('')
+        setLoading(true)
         signIn(data.email, data.password)
         .then(()=>{
             setSuccess('you logged in successfully')
@@ -49,6 +50,7 @@ const {
                   showConfirmButton: false,
                   timer: 1500
                 });
+                setLoading(false)
       });
         reset()
       }

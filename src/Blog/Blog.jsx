@@ -3,6 +3,7 @@ import { Link  } from "react-router-dom";
 import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 
 function Blog() {
@@ -58,6 +59,9 @@ if(isLoading) return <LoadingSpinner/>
 
   return (
     <div className="container mx-auto p-4">
+      <Helmet>
+        <title>BloodLink | Blog Page</title>
+      </Helmet>
       <div className="flex justify-center items-center my-5 md:my-7 lg:my-10">
         <h1 className="text-3xl md:text-5xl font-bold ">Blogs</h1>
       </div>

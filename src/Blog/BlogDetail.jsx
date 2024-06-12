@@ -2,18 +2,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import useAxiosPublic from "../Authentication/hooks/useAxiosPublic";
+import useAxiosSecure from "../Authentication/hooks/useAxiosSecure";
+
 
 
 function BlogDetail() {
   const { id } = useParams();
-  const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axiosPublic.get(`/blogs/${id}`)
+    axiosSecure.get(`/blogs/${id}`)
       .then(response => {
         setBlog(response.data);
         setLoading(false);

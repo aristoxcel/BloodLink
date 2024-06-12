@@ -3,6 +3,7 @@ import LoadingSpinner from "../../Components/LoadingSpinner"
 import { useQuery } from "@tanstack/react-query"
 import useAxiosSecure from "../../Authentication/hooks/useAxiosSecure"
 import useAuth from "../../Authentication/hooks/useAuth"
+import { Helmet } from "react-helmet-async"
 
 
 function VolunteerHome() {
@@ -21,6 +22,9 @@ function VolunteerHome() {
  
   return (
     <div className="container mx-auto p-4 pt-14">
+      <Helmet>
+        <title>BloodLink | Dashboard Home Page</title>
+      </Helmet>
     <h1 className="text-3xl font-bold mb-8">Welcome, {user.displayName}!</h1>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

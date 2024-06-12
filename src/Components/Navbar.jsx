@@ -14,7 +14,6 @@ export const Navbar = () => {
     const {user, logOut}=useContext(AuthContext)
 
     const handleLogOut = () => {
-      console.log("touch kaj kore")
       logOut()
           .then(() => { 
             console.log('logout');
