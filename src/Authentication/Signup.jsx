@@ -56,7 +56,7 @@ function Signup() {
 
 
   const onSubmit =async (data) =>{
-    console.log(data)
+
     const imageFile = { image: data.image[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
@@ -95,7 +95,7 @@ function Signup() {
        })
       })
       .catch(error =>console.log(error));
-      console.log(res.data)
+
     }
   }
 

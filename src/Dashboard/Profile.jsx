@@ -61,7 +61,6 @@ function Profile() {
       const updateRes = await axiosPublic.put(`/user/${user?.email}`, userData);
       
       
-      console.log(updateRes.data);
       if(updateRes.data.modifiedCount>0){
         refetch()
         Swal.fire({

@@ -24,20 +24,12 @@ function ContentManagement() {
     }
   })
 
-  // useEffect(() => {
-  //   setLoading(true)
-  //   axiosSecure.get('/blogs')
-  //     .then(response => {
-  //       setLoading(false)
-  //       setBlogs(response.data)})
-  //     .catch(error => console.error('Error fetching blogs:', error));
-  // }, [axiosSecure]);
 
   const handlePublish = async(id) => {
     // API call to publish blog
     try {
       const res = await axiosSecure.put(`/blogs/${id}`, { status: 'publish' });
-      console.log(res.data);
+
       if (res.data.modifiedCount > 0) refetch();
     } catch (error) {
       console.error('Error publishing blog:', error);
@@ -48,7 +40,7 @@ function ContentManagement() {
     // API call to unpublish blog
     try {
       const res = await axiosSecure.put(`/blogs/${id}`, { status: 'draft' });
-      console.log(res.data);
+
       if (res.data.modifiedCount > 0) refetch();
     } catch (error) {
       console.error('Error unpublishing blog:', error);

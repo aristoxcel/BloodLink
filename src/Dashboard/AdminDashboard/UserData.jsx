@@ -1,24 +1,9 @@
 // import { useState } from 'react'
 import ThreeDotMenu from '../../Components/ThreeDotMenu'
 import RoleChange from '../../Components/RoleChange'
-// import UpdateUserModal from '../../../Modal/UpdateUserModal'
-// import { updateRole } from '../../../../api/auth'
-// import { toast } from 'react-hot-toast'
+
 const UserData = ({ user, refetch }) => {
-  // const [isOpen, setIsOpen] = useState(false)
-//   const modalHandler = async role => {
-//     try {
-//       const data = await updateRole({ email: user?.email, role })
-//       console.log(data)
-//       refetch()
-//       toast.success('User role updated!')
-//     } catch (err) {
-//       console.log(err)
-//       toast.error(err.message)
-//     } finally {
-//       setIsOpen(false)
-//     }
-//   }
+
   return (
     <tr>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>

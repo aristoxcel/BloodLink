@@ -17,8 +17,7 @@ function Sidebar() {
     const { logOut } = useAuth()
     const [isActive, setActive] = useState(false)
     // const [toggle, setToggle] = useState(true)
-    const [role, isLoading] = useRole()
-    console.log(role, isLoading)
+    const [role] = useRole()
     // Sidebar Responsive Handler
     const handleToggle = () => {
       setActive(!isActive)
@@ -27,7 +26,6 @@ function Sidebar() {
     const handleLogOut = () => {
         logOut()
             .then(() => { 
-              console.log('logout');
               navigate('/')
               toast.success("You Logged Out Successfully")
             })

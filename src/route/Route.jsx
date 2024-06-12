@@ -21,6 +21,7 @@ import AddBlog from "../Dashboard/AddBlog";
 import BlogDetail from "../Blog/BlogDetail";
 import ErrorPage from "../Authentication/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -38,29 +39,29 @@ export const router =createBrowserRouter([
         {path:'/Blog', element:<Blog></Blog>},
         {path:'/blogDetail/:id', element:<PrivateRoute><BlogDetail></BlogDetail></PrivateRoute>},
         {path:'/Funding', element:<Funding></Funding>},
-        {path:'/donationDetail/:id', element:<DonationDetail></DonationDetail>},
+        {path:'/donationDetail/:id', element:<PrivateRoute><DonationDetail></DonationDetail></PrivateRoute>},
         {path:'/donationDetailPublic/:id', element:<DonationDetailPublic></DonationDetailPublic>}
       ]
     },
     {
       path:'/dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
-        {index:true, element:<DashHome></DashHome>},
-        {path:'profile', element:<Profile></Profile>},
+        {index:true, element:<PrivateRoute><DashHome></DashHome></PrivateRoute>},
+        {path:'profile', element:<PrivateRoute><Profile></Profile></PrivateRoute>},
 
 
-        {path:'all-users', element:<AllUsers></AllUsers>},
+        {path:'all-users', element:<PrivateRoute><AdminRoute><AllUsers></AllUsers></AdminRoute></PrivateRoute>},
 
 
-        {path:'create-donation-request', element:<CreateDonationRequest></CreateDonationRequest>},
-        {path:'my-donation-requests', element:<MyDonationReq></MyDonationReq>},
+        {path:'create-donation-request', element:<PrivateRoute><CreateDonationRequest></CreateDonationRequest></PrivateRoute>},
+        {path:'my-donation-requests', element:<PrivateRoute><MyDonationReq></MyDonationReq></PrivateRoute>},
         
         
-        {path:'all-blood-donation-request', element:<AllBloodDonationReq></AllBloodDonationReq>},
-        {path:'content-management', element:<ContentManagement></ContentManagement>},
-        {path:'add-blog', element:<AddBlog></AddBlog>},
+        {path:'all-blood-donation-request', element:<PrivateRoute><AllBloodDonationReq></AllBloodDonationReq></PrivateRoute>},
+        {path:'content-management', element:<PrivateRoute><ContentManagement></ContentManagement></PrivateRoute>},
+        {path:'add-blog', element:<PrivateRoute><AddBlog></AddBlog></PrivateRoute>},
      
       ]
     }
-  ])
+  ])  

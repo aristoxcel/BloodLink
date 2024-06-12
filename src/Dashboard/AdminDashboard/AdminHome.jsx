@@ -17,7 +17,6 @@ function AdminHome() {
     },
   })
 
-  console.log(statData)
   if (isLoading) return <LoadingSpinner />
  
   return (

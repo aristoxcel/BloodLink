@@ -5,24 +5,9 @@ import { GrOverview } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import ReqStatus from '../../Components/ReqStatus';
 
-// import UpdateUserModal from '../../../Modal/UpdateUserModal'
-// import { updateRole } from '../../../../api/auth'
-// import { toast } from 'react-hot-toast'
+
 const DonarData = ({ user, refetch, handleDelete, role }) => {
-  // const [isOpen, setIsOpen] = useState(false)
-//   const modalHandler = async role => {
-//     try {
-//       const data = await updateRole({ email: user?.email, role })
-//       console.log(data)
-//       refetch()
-//       toast.success('User role updated!')
-//     } catch (err) {
-//       console.log(err)
-//       toast.error(err.message)
-//     } finally {
-//       setIsOpen(false)
-//     }
-//   }
+
 
   return (
     <tr>
